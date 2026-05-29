@@ -1,0 +1,6 @@
+{
+  "buildCommand": "cd sos && npm install && npm run build",
+  "outputDirectory": "sos/dist",
+  "devCommand": "cd sos && npm run dev",
+  "framework": "vue"
+}
