@@ -52,7 +52,7 @@
               </li>
               <li class="flex items-start gap-3">
                 <span class="text-green-700 font-bold">Phone:</span>
-                <span>+250 7XX XXX XXX</span>
+                <span>+250 794 649</span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="text-green-700 font-bold">Location:</span>

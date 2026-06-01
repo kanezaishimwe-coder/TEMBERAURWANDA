@@ -1,20 +1,29 @@
 
+<script setup>
+import { useI18n } from '../../i18n'
+
+const { t } = useI18n()
+</script>
+
 <template>
   <div class="w-full">
+
     <!-- Hero Section -->
     <section class="bg-green-800 text-white py-20">
       <div class="max-w-6xl mx-auto px-4 text-center">
-        <h1 class="text-5xl font-bold mb-6">Gallery</h1>
-        <p class="text-xl max-w-2xl mx-auto">Some of the beautiful places you’ll want to visit in Rwanda.</p>
+        <h1 class="text-5xl font-bold mb-6">{{ t('galleryTitle') }}</h1>
+        <p class="text-xl max-w-2xl mx-auto">{{ t('gallerySubtitle') }}</p>
       </div>
     </section>
+
 
     <!-- Photos Grid -->
     <section class="py-16 bg-white">
       <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-4xl font-bold text-green-700 text-center mb-12">Featured Photos</h2>
+        <h2 class="text-4xl font-bold text-green-700 text-center mb-12">{{ t('featuredPhotos') }}</h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
           <figure class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
             <img
               src="https://www.rwandasafaritour.com/wp-content/uploads/2022/10/shu-Rwanda-Gisovu-Tea_1075926788-1400x823-1.jpg"
@@ -78,17 +87,36 @@
       </div>
     </section>
 
+    <!-- Videos Section -->
+    <section class="py-16 bg-green-50">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-4xl font-bold text-green-700 text-center mb-12">{{ t('galleryVideos') }}</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 p-3">
+            <video class="w-full rounded-lg" controls preload="metadata" src="">
+              Sorry, your browser does not support videos.
+            </video>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Note / CTA -->
     <section class="py-16 bg-green-50">
+
       <div class="max-w-6xl mx-auto px-4 text-center">
-        <h2 class="text-4xl font-bold text-green-700 mb-6">Want your own itinerary?</h2>
+        <h2 class="text-4xl font-bold text-green-700 mb-6">{{ t('wantItineraryTitle') }}</h2>
         <p class="text-gray-700 mb-8 max-w-2xl mx-auto">
-          Tell us your interests and we’ll suggest the best places and experiences for your trip.
+          {{ t('wantItinerarySubtitle') }}
         </p>
+
         <div class="flex gap-4 justify-center">
           <a href="#" @click.prevent="$router.push({ name: 'contacts' })" class="bg-green-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-green-700 transition duration-300">
-            Contact Us
+            {{ t('contactUs') }}
           </a>
+
         </div>
       </div>
     </section>
