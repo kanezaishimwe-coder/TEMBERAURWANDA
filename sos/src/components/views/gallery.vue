@@ -145,11 +145,7 @@ const facebookEmbedUrl = (url) => {
           </div>
         </div>
 
-        <p class="mt-6 text-sm text-gray-600 text-center">
-          Add your local video files to <code class="bg-gray-100 rounded px-1 py-0.5">public/gallery/videos</code> as
-          <code>video1.mp4</code>, <code>video2.mp4</code>, and <code>video3.mp4</code>. If the local file is missing,
-          a sample fallback video will still play.
-        </p>
+        
       </div>
     </section>
 

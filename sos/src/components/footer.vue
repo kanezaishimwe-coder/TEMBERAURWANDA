@@ -41,7 +41,7 @@
 
   <!--Copyright info-->
     <div class="border-t border-green-600 mt-8 pt-4 text-sm ">
-      <p class="text-center">@2025 visit Rwanda.All rights reserved</p>
+      <p class="text-center">@2025 done by ishimwe shema kaneza glory</p>
     </div>
 </footer>
 </template>
