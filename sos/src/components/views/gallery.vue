@@ -1,8 +1,31 @@
-n
 <script setup>
 import { useI18n } from '../../i18n'
 
 const { t } = useI18n()
+
+const galleryVideos = [
+  {
+    caption: 'Volcanoes National Park Tour',
+    sources: [
+      { src: '/gallery/videos/video1.mp4', type: 'video/mp4' },
+      { src: 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4', type: 'video/mp4' }
+    ]
+  },
+  {
+    caption: 'Kigali City Highlights',
+    sources: [
+      { src: '/gallery/videos/video2.mp4', type: 'video/mp4' },
+      { src: 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4', type: 'video/mp4' }
+    ]
+  },
+  {
+    caption: 'Rwanda Nature Experience',
+    sources: [
+      { src: '/gallery/videos/video3.mp4', type: 'video/mp4' },
+      { src: 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4', type: 'video/mp4' }
+    ]
+  }
+]
 </script>
 
 <template>
@@ -93,59 +116,26 @@ const { t } = useI18n()
         <h2 class="text-4xl font-bold text-green-700 text-center mb-12">{{ t('galleryVideos') }}</h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 p-3">
-
-            <div class="relative w-full" style="padding-top: 56.25%">
-              <iframe
-                class="absolute top-0 left-0 w-full h-full"
-                src="https://www.youtube.com/embed/R42p6lHSIqU"
-                title="YouTube video" 
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </div>
-          </div>
-
-          <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 p-3">
-            <div class="relative w-full" style="padding-top: 56.25%">
-              <iframe
-                class="absolute top-0 left-0 w-full h-full"
-                src="https://www.youtube.com/embed/q29tAp91jG0"
-                title="YouTube video" 
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </div>
-          </div>
-
-          <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 p-3">
-            <div class="relative w-full" style="padding-top: 56.25%">
-              <iframe
-                class="absolute top-0 left-0 w-full h-full"
-                src="https://www.youtube.com/embed/923ycig9p5g"
-                title="YouTube video" 
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </div>
-          </div>
-
-          <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 p-3">
-            <div class="relative w-full" style="padding-top: 56.25%">
-              <iframe
-                class="absolute top-0 left-0 w-full h-full"
-                src="https://www.youtube.com/embed/btc4gILXBMk"
-                title="YouTube video" 
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </div>
+          <div
+            v-for="(video, index) in galleryVideos"
+            :key="index"
+            class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 p-3"
+          >
+            <video controls class="w-full rounded-lg" preload="metadata" poster="https://via.placeholder.com/640x360?text=Video+Preview">
+              <template v-for="source in video.sources" :key="source.src">
+                <source :src="source.src" :type="source.type" />
+              </template>
+              Sorry, your browser does not support HTML5 video.
+            </video>
+            <p class="mt-4 text-gray-700 font-semibold text-center">{{ video.caption }}</p>
           </div>
         </div>
+
+        <p class="mt-6 text-sm text-gray-600 text-center">
+          Add your local video files to <code class="bg-gray-100 rounded px-1 py-0.5">public/gallery/videos</code> as
+          <code>video1.mp4</code>, <code>video2.mp4</code>, and <code>video3.mp4</code>. If the local file is missing,
+          a sample fallback video will still play.
+        </p>
       </div>
     </section>
 
