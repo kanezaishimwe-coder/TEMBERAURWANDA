@@ -115,16 +115,14 @@ const galleryVideos = [
       <div class="max-w-6xl mx-auto px-4">
         <h2 class="text-4xl font-bold text-green-700 text-center mb-12">{{ t('galleryVideos') }}</h2>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           <div
             v-for="(video, index) in galleryVideos"
             :key="index"
             class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 p-3"
           >
-            <video controls class="w-full rounded-lg" preload="metadata" poster="https://via.placeholder.com/640x360?text=Video+Preview">
-              <template v-for="source in video.sources" :key="source.src">
-                <source :src="source.src" :type="source.type" />
-              </template>
+            <video controls class="w-full aspect-video rounded-lg" preload="metadata" poster="https://via.placeholder.com/640x360?text=Video+Preview">
+              <source v-for="source in video.sources" :key="source.src" :src="source.src" :type="source.type" />
               Sorry, your browser does not support HTML5 video.
             </video>
             <p class="mt-4 text-gray-700 font-semibold text-center">{{ video.caption }}</p>
