@@ -94,6 +94,7 @@ const { t } = useI18n()
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 p-3">
+
             <div class="relative w-full" style="padding-top: 56.25%">
               <iframe
                 class="absolute top-0 left-0 w-full h-full"
