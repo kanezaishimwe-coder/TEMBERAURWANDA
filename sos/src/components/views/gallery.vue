@@ -1,8 +1,40 @@
-
 <script setup>
 import { useI18n } from '../../i18n'
 
 const { t } = useI18n()
+
+const galleryVideos = [
+  {
+    caption: 'Volcanoes National Park Tour',
+    sources: [
+      { src: '/gallery/videos/video1.mp4', type: 'video/mp4' },
+      { src: 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4', type: 'video/mp4' }
+    ]
+  },
+  {
+    caption: 'Kigali City Highlights',
+    youTubeUrl: 'https://www.youtube.com/watch?v=q29tAp91jG0'
+  },
+  {
+    caption: 'Rwanda Country of a Thousand Hills',
+    facebookUrl: 'https://www.facebook.com/olalekan.oduntan.3/videos/why-rwanda-is-called-the-country-of-a-thousand-hillsrwanda-is-famously-known-as-/985740514162832/'
+  },
+  {
+    caption: 'Rwanda Nature Experience',
+    youTubeUrl: 'https://www.youtube.com/watch?v=PAXkdItTILc'
+  }
+]
+
+const youtubeEmbedUrl = (url) => {
+  const match = url && url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&?/]+)/)
+  return match ? `https://www.youtube.com/embed/${match[1]}` : url
+}
+
+const facebookEmbedUrl = (url) => {
+  return url
+    ? `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(url)}&show_text=0&width=560`
+    : ''
+}
 </script>
 
 <template>
@@ -92,14 +124,43 @@ const { t } = useI18n()
       <div class="max-w-6xl mx-auto px-4">
         <h2 class="text-4xl font-bold text-green-700 text-center mb-12">{{ t('galleryVideos') }}</h2>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 p-3">
-            <video class="w-full rounded-lg" controls preload="metadata" src="">
-              Sorry, your browser does not support videos.
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div
+            v-for="(video, index) in galleryVideos"
+            :key="index"
+            class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 p-3"
+          >
+            <div v-if="video.youTubeUrl || video.facebookUrl" class="relative aspect-video w-full overflow-hidden rounded-lg bg-black">
+              <iframe
+                class="absolute inset-0 w-full h-full"
+                :src="video.youTubeUrl ? youtubeEmbedUrl(video.youTubeUrl) : facebookEmbedUrl(video.facebookUrl)"
+                title="Video embed"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
+
+            <video
+              v-else
+              controls
+              class="w-full aspect-video rounded-lg"
+              preload="metadata"
+              poster="https://via.placeholder.com/640x360?text=Video+Preview"
+            >
+              <source v-for="source in video.sources" :key="source.src" :src="source.src" :type="source.type" />
+              Sorry, your browser does not support HTML5 video.
             </video>
 
+            <p class="mt-4 text-gray-700 font-semibold text-center">{{ video.caption }}</p>
           </div>
         </div>
+
+        <p class="mt-6 text-sm text-gray-600 text-center">
+          Add your local video files to <code class="bg-gray-100 rounded px-1 py-0.5">public/gallery/videos</code> as
+          <code>video1.mp4</code>, <code>video2.mp4</code>, and <code>video3.mp4</code>. If the local file is missing,
+          a sample fallback video will still play.
+        </p>
       </div>
     </section>
 

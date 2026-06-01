@@ -1,4 +1,4 @@
-﻿<script setup>
+﻿ve<script setup>
 import { useRouter } from 'vue-router'
 import { useI18n } from '../i18n'
 
