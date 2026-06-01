@@ -5,23 +5,12 @@ const { t } = useI18n()
 
 const galleryVideos = [
   {
-    caption: 'Volcanoes National Park Tour',
-    sources: [
-      { src: '/gallery/videos/video1.mp4', type: 'video/mp4' },
-      { src: 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4', type: 'video/mp4' }
-    ]
+    caption: 'Video A (provided)',
+    youTubeUrl: 'https://www.youtube.com/watch?v=axIS5RXkwiE&vl=en'
   },
   {
-    caption: 'Kigali City Highlights',
+    caption: 'Video B (provided)',
     youTubeUrl: 'https://www.youtube.com/watch?v=q29tAp91jG0'
-  },
-  {
-    caption: 'Rwanda Country of a Thousand Hills',
-    facebookUrl: 'https://www.facebook.com/olalekan.oduntan.3/videos/why-rwanda-is-called-the-country-of-a-thousand-hillsrwanda-is-famously-known-as-/985740514162832/'
-  },
-  {
-    caption: 'Rwanda Nature Experience',
-    youTubeUrl: 'https://www.youtube.com/watch?v=PAXkdItTILc'
   }
 ]
 
