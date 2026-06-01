@@ -1,4 +1,4 @@
-
+n
 <script setup>
 import { useI18n } from '../../i18n'
 
@@ -94,10 +94,55 @@ const { t } = useI18n()
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 p-3">
-            <video class="w-full rounded-lg" controls preload="metadata" src="">
-              Sorry, your browser does not support videos.
-            </video>
+            <div class="relative w-full" style="padding-top: 56.25%">
+              <iframe
+                class="absolute top-0 left-0 w-full h-full"
+                src="https://www.youtube.com/embed/R42p6lHSIqU"
+                title="YouTube video" 
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
 
+          <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 p-3">
+            <div class="relative w-full" style="padding-top: 56.25%">
+              <iframe
+                class="absolute top-0 left-0 w-full h-full"
+                src="https://www.youtube.com/embed/q29tAp91jG0"
+                title="YouTube video" 
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 p-3">
+            <div class="relative w-full" style="padding-top: 56.25%">
+              <iframe
+                class="absolute top-0 left-0 w-full h-full"
+                src="https://www.youtube.com/embed/923ycig9p5g"
+                title="YouTube video" 
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 p-3">
+            <div class="relative w-full" style="padding-top: 56.25%">
+              <iframe
+                class="absolute top-0 left-0 w-full h-full"
+                src="https://www.youtube.com/embed/btc4gILXBMk"
+                title="YouTube video" 
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
           </div>
         </div>
       </div>
